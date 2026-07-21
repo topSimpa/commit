@@ -14,12 +14,3 @@ export default class Project {
         return this.#id;
     }
 }
-
-const defaultProject = new Project(
-    "Inbox",
-    "All your tasks/todos leaves here by default"
-)
-
-const defaultProjectId = defaultProject.id;
-
-export { defaultProjectId }

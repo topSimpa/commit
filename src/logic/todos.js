@@ -1,28 +1,20 @@
 //todos.js
-import { defaultProjectId } from "./project.js"
-
-const priorities  = {
-    ground: 1,
-    air: 2,
-    sky: 3,
-    sun: 4,
-    storm: 5,
-}
-
 
 export default class Todos {
    #id;
+   #completed;
 
     constructor(
         task, 
         tag="", 
         dueDate="", 
         duration="", 
-        priority=priorities.ground,
-        project=defaultProjectId,
+        priority,
+        project,
     ) {
 
         this.#id = crypto.randomUUID();
+        this.#completed = false;
 
         this.task = task;
         this.tag = tag;
@@ -30,10 +22,19 @@ export default class Todos {
         this.duration = duration;
         this.priority = priority;
         this.project = project;
+        
     }
 
     get id() {
         return this.#id;
+    }
+
+    get completed() {
+        return this.#completed;
+    }
+
+    toggleStatus() {
+        this.#completed = !(this.#completed);
     }
 }
 
