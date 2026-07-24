@@ -1,8 +1,6 @@
 //todos.js
 
 export default class Todos {
-   #id;
-   #completed;
 
     constructor(
         task, 
@@ -13,8 +11,8 @@ export default class Todos {
         project,
     ) {
 
-        this.#id = crypto.randomUUID();
-        this.#completed = false;
+        this._id = crypto.randomUUID();
+        this._completed = false;
 
         this.task = task;
         this.tag = tag;
@@ -26,15 +24,15 @@ export default class Todos {
     }
 
     get id() {
-        return this.#id;
+        return this._id;
     }
 
     get completed() {
-        return this.#completed;
+        return this._completed;
     }
 
     toggleStatus() {
-        this.#completed = !(this.#completed);
+        this._completed = !(this._completed);
     }
 }
 

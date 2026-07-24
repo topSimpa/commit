@@ -1,5 +1,5 @@
 //todosController.js
-import { todoStorage } from "./storage.js";
+import todoStorage from "./todoStorage.js";
 import Project from "./project.js";
 import Todos from "./todos.js";
 
@@ -36,15 +36,21 @@ function TodosController() {
         )
 
         //storage should come here to store the todos
-        todoStorage[`${todo.id}`] = todo;
+        todoStorage.store(todo.id, todo);
         console.log(`Task ${todo.id} was created`);
+    }
+
+    const getTodo = (id) => {
+        const todo = todoStorage.getTodo(id);
+        Object.setPrototypeOf(todo, Todos);
+        
+        return todo;
     }
 
     const toggleStatus = (id) => {
         //get the todo from the storage
         todo = todoStorage[id];
-        todo.toggleStatus();
-        console.log(todo);
+        todoStorage.store(todo.id, todo)
     } 
 
     const addToProject = (id, projectId) => {
@@ -53,15 +59,34 @@ function TodosController() {
         console.log("added project successfully");
     }
 
+    const changeTag = (id, tag) => {
+        todo = todoStorage[id];
+        todo.tag = tag;
+        console.log("change todo successfully");
+    }
+
+    const dueDate = (id, date)  => {
+        todo = todoStorage[id];
+        todo.dueDate = date;
+    }
+
+    const changeDuration = (id, duration) => {
+        todo = todoStorage[id];
+        todo.duration = duration;
+    }
+
     return {
         createTodos,
+        getTodo,
         toggleStatus,
         addToProject,
+        changeTag,
+        dueDate,
+        changeDuration
     }
 }
 
 
-// const todosController = TodosController();
+const todosController = TodosController();
 
-// todosController.createTodos(  "pray tommorrow morning" );
-// window.storage = todoStorage;
+window.todosController = todosController;
