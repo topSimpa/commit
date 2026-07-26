@@ -1,15 +1,10 @@
 //todosController.js
 import todoStorage from "./todoStorage.js";
-import Project from "./project.js";
+import { defaultProject } from "./projectController.js";
 import Todos from "./todos.js";
 
-function TodosController() {
-    const defaultProject = new Project(
-        "Inbox",
-        "All your tasks/todos leaves here by default"
-    )
-
-
+const todosController = (function () {
+    
     const priorities  = {
         ground: 1,
         air: 2,
@@ -42,37 +37,53 @@ function TodosController() {
 
     const getTodo = (id) => {
         const todo = todoStorage.getTodo(id);
-        Object.setPrototypeOf(todo, Todos);
+        Object.setPrototypeOf(todo, Todos.prototype);
         
         return todo;
     }
 
     const toggleStatus = (id) => {
-        //get the todo from the storage
-        todo = todoStorage[id];
+        const todo = getTodo(id);
+        todo.toggleStatus();
         todoStorage.store(todo.id, todo)
+        console.log("toggled complete status");
     } 
 
     const addToProject = (id, projectId) => {
-        todo = todoStorage[id];
+        const todo = getTodo(id);
         todo.project = projectId;
+        todoStorage.store(todo.id, todo);
         console.log("added project successfully");
     }
 
     const changeTag = (id, tag) => {
-        todo = todoStorage[id];
+        const todo = getTodo(id);
         todo.tag = tag;
+        todoStorage.store(todo.id, todo);
         console.log("change todo successfully");
     }
 
     const dueDate = (id, date)  => {
-        todo = todoStorage[id];
+        const todo = getTodo(id);
         todo.dueDate = date;
+        todoStorage.store(todo.id, todo);
     }
 
     const changeDuration = (id, duration) => {
-        todo = todoStorage[id];
+        const todo = getTodo(id);
         todo.duration = duration;
+        todoStorage.store(todo.id, todo);
+    }
+
+    const changePriority = (id, priority) => {
+        const todo = getTodo(id);
+        todo.priority = priorities[priority];
+        todoStorage.store(todo.id, todo);
+
+    }
+
+    const del = (id) => {
+        todoStorage.del(id);
     }
 
     return {
@@ -82,11 +93,10 @@ function TodosController() {
         addToProject,
         changeTag,
         dueDate,
-        changeDuration
+        changeDuration,
+        changePriority,
+        del,
     }
-}
-
-
-const todosController = TodosController();
+})();
 
 window.todosController = todosController;

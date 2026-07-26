@@ -2,29 +2,35 @@
 
 const projectStorage = (
     function () {
-        const storage = {};
+        const rawStorage = localStorage.getItem("projectStorage");
 
-        const save = (id, project) => {
+        const storage = rawStorage ? JSON.parse(rawStorage) : {};
+
+        const store = (id, project) => {
             storage[id] = project;
-
             localStorage.setItem("projectStorage", JSON.stringify(storage));
         }
 
         const getProject = (id) => {
-            let storage = localStorage.get("projectStorage");
-
-            storage = JSON.parse(storage);
-            return storage[id] //if id not in object far
+            return storage[id];
         }
 
 
         const getAll = () => {
-            let storage = localStorage.get("projectStorage");
-
-            storage = JSON.parse(storage); // if storage is empty {} does it change anything
             return storage;
         }
+
+        const del  = (id) => {
+            delete storage[id];
+            localStorage.setItem("projectStorage", JSON.stringify(storage));
+        }
+
+        return {
+            store,
+            getProject,
+            getAll,
+        }
     }
-) ()
+) ();
 
 export default projectStorage;

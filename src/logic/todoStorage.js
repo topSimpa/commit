@@ -1,8 +1,11 @@
-//todoStorage.js
+ //todoStorage.js
 
 const todoStorage = (
   function () {
-    const storage = {};
+    const rawStorage = localStorage.getItem("todoStorage");
+
+    //loading up storage
+    const  storage = rawStorage ? JSON.parse(rawStorage) : {};
 
     const store = (id, todo) => {
         storage[id] = todo;
@@ -10,25 +13,23 @@ const todoStorage = (
     }
 
     const getTodo = (id) => {
-        let storage = localStorage.getItem("todoStorage");
-
-        if (storage) {
-            storage = JSON.parse(storage); //does parsing it change anything
-            return storage[id]; // if id is not in storage far
-        } else {
-            return {};
-        }
+        return storage[id];
     }
 
     const getAllTodo = () => {
-        let storage = localStorage.getItem("todoStorage");
+        return storage;
+    }
 
-        return JSON.parse(storage);
+    const del = (id) => {
+        delete storage[id];
+        localStorage.setItem("todoStorage", JSON.stringify(storage));
     }
 
     return {
         store,
         getTodo,
+        getAllTodo,
+        del,
     }
 
   }  
