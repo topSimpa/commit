@@ -40,19 +40,23 @@ const projectController =  (function () {
         return true;
     }
 
+    const getAllProject = () => {
+        const projects = projectStorage.getAll();
+        for ( const [key, val] of Object.entries(projects) ) {
+            projects[key] = Object.setPrototypeOf(val, Project.prototype);
+        }
+        return projects
+    }
+
+
     return {
         createProject,
-        getProject,
         changeTitle,
         changeDesc,
         del,
+        getProject,
+        getAllProject,
     }
 })();
 
-
-const defaultProject = projectController.createProject(
-    "Inbox",
-    "All your tasks/todos leaves here by default"
-);
-
-export { defaultProject, projectController };
+export default projectController;

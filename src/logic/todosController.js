@@ -1,6 +1,5 @@
 //todosController.js
 import todoStorage from "./todoStorage.js";
-import { defaultProject } from "./projectController.js";
 import Todos from "./todos.js";
 
 const todosController = (function () {
@@ -15,11 +14,11 @@ const todosController = (function () {
 
     const createTodos = (
         task, 
+        project,
         tag="", 
         dueDate="", 
         duration="", 
         priority=priorities.ground,
-        project=defaultProject.id,
     ) => {
         const todo = new Todos(
             task,
@@ -100,3 +99,4 @@ const todosController = (function () {
 })();
 
 window.todosController = todosController;
+export default todosController;

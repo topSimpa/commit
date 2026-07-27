@@ -1,14 +1,14 @@
 //ptodosController.js
 //module to handle the relationship connection between project and todo
 
-import todoStorage from "./todoStorage";
-import projectStorage from "./projectStorage";
-import Todos from "./todos";
+import todoStorage from "./todoStorage.js";
+import projectStorage from "./projectStorage.js";
+import Todos from "./todos.js";
 
 
 const ptodosController = ( function () {
 
-    const getProjectTodos = (pid, tid) => {
+    const getProjectTodos = (pid) => {
         if (projectStorage.getProject(pid)) {
             const todos = todoStorage.getAllTodo();
 
@@ -37,4 +37,11 @@ const ptodosController = ( function () {
         return true;
     }
 
+    return {
+        getProjectTodos,
+        delProjectTodos,
+    }
+
 })();
+
+export default ptodosController;

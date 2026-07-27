@@ -35,6 +35,3 @@ export default class Todos {
         this._completed = !(this._completed);
     }
 }
-
-const task = new Todos("collect package from zulei");
-console.log(task);
