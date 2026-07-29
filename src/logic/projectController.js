@@ -1,61 +1,33 @@
 //projectController
 import Project from "./project.js";
-import projectStorage from "./projectStorage.js";
+import createStorage from "./createStorage.js";
+import createController from "./createController.js";
 
-
+// returns a composition of controller for project and 
+// other utility function to manage project object
 const projectController =  (function () {
+    const projectStorage = createStorage("projectStorage");
+    const base = createController(projectStorage, Project);
 
-    const createProject = (title, description) => {
-        const project = new Project(title, description);
+    const changeDescription = base.createFieldSetter("description");
+    const changeTitle = base.createFieldSetter("title");
 
-        projectStorage.store(project.id, project);
-        console.log(`project ${project.id} created successfully`);
-        return project;
+    
+    //check if default project is there or 
+    //create
+    const currentProject = projectStorage.getAll()
+    const defaultProject = currentProject.filter(
+        ( project ) => project.title == "Inbox" 
+    );
+
+    if (!defaultProject) {
+        base.create("Inbox", "default project for all your todos")
     }
-
-    const getProject = (id) => {
-        const project = projectStorage.getProject(id);
-
-        Object.setPrototypeOf(project, Project.prototype);
-        return project;
-    }
-
-    const changeTitle = (id, newTitle)  => {
-        const project = getProject(id);
-        
-        project.title = newTitle;
-        projectStorage.store(project.id, project);
-        console.log("project title changed");
-    }
-
-    const changeDesc = (id, newDesc) => {
-        const project = getProject(id);
-
-        project.description = newDesc;
-        projectStorage.store(project.id, project);
-    }
-
-    const del = (id) => {
-        projectStorage.del(id);
-        return true;
-    }
-
-    const getAllProject = () => {
-        const projects = projectStorage.getAll();
-        for ( const [key, val] of Object.entries(projects) ) {
-            projects[key] = Object.setPrototypeOf(val, Project.prototype);
-        }
-        return projects
-    }
-
 
     return {
-        createProject,
-        changeTitle,
-        changeDesc,
-        del,
-        getProject,
-        getAllProject,
+      ...base,
+      changeDescription,
+      changeTitle,
     }
 })();
 

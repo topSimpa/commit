@@ -1,102 +1,85 @@
 //todosController.js
-import todoStorage from "./todoStorage.js";
-import Todos from "./todos.js";
+import { isThisWeek, isToday, compareAsc } from  "date-fns";
 
+import Todo from "./todo.js";
+import createStorage from "./createStorage.js";
+import createController from "./createController.js";
+
+
+//a composition of base controller for todo and
+//other utility function to manage todo
 const todosController = (function () {
-    
-    const priorities  = {
-        ground: 1,
-        air: 2,
-        sky: 3,
-        sun: 4,
-        storm: 5,
-    }
+    const todoStorage = createStorage("todoStorage");
+    const base = createController(todoStorage, Todo)
 
-    const createTodos = (
-        task, 
-        project,
-        tag="", 
-        dueDate="", 
-        duration="", 
-        priority=priorities.ground,
-    ) => {
-        const todo = new Todos(
-            task,
-            tag,
-            dueDate,
-            duration,
-            priority,
-            project,
-        )
+    const changeProject = base.createFieldSetter("project");
+    const changeTag = base.createFieldSetter("tag");
+    const changeDueDate = base.createFieldSetter("dueDate");
+    const changePriority = base.createFieldSetter("priority");
+    const changeDetails = base.createFieldSetter("details");
 
-        //storage should come here to store the todos
-        todoStorage.store(todo.id, todo);
-        console.log(`Task ${todo.id} was created`);
-    }
+    const delByProject = (pid) => {
+        const todos = todoStorage.getAll();
+        console.log(todos);
 
-    const getTodo = (id) => {
-        const todo = todoStorage.getTodo(id);
-        Object.setPrototypeOf(todo, Todos.prototype);
+        if (!todos) return todos;
         
-        return todo;
+        for (const todo of todos) {
+            if (todo.project == pid) {
+                todoStorage.del(pid);
+            }
+        }
     }
+
+    const getByProject = (pid) => {
+        const todos = todoStorage.getAll();
+        console.log(todos);
+
+        if (!todos) return todos;
+
+        return todos.filter( ( todo ) => todo.project == pid );
+    } 
 
     const toggleStatus = (id) => {
-        const todo = getTodo(id);
+        const todo = base.get(id);
         todo.toggleStatus();
-        todoStorage.store(todo.id, todo)
+        todoStorage.store(todo)
         console.log("toggled complete status");
     } 
 
-    const addToProject = (id, projectId) => {
-        const todo = getTodo(id);
-        todo.project = projectId;
-        todoStorage.store(todo.id, todo);
-        console.log("added project successfully");
+    const todays = () => {
+        const todos = todoStorage.getAll();
+        console.log(todos);
+
+        if (!todos) return todos;
+
+        return todos.filter( ( todo ) => isToday( todo.dueDate ) );
+        
     }
 
-    const changeTag = (id, tag) => {
-        const todo = getTodo(id);
-        todo.tag = tag;
-        todoStorage.store(todo.id, todo);
-        console.log("change todo successfully");
-    }
+    const thisWeek = () => {
+        const todos = todoStorage.getAll();
+        console.log(todos);
+        if (!todos) return todos;
 
-    const dueDate = (id, date)  => {
-        const todo = getTodo(id);
-        todo.dueDate = date;
-        todoStorage.store(todo.id, todo);
-    }
-
-    const changeDuration = (id, duration) => {
-        const todo = getTodo(id);
-        todo.duration = duration;
-        todoStorage.store(todo.id, todo);
-    }
-
-    const changePriority = (id, priority) => {
-        const todo = getTodo(id);
-        todo.priority = priorities[priority];
-        todoStorage.store(todo.id, todo);
-
-    }
-
-    const del = (id) => {
-        todoStorage.del(id);
+        return todos.filter( ( todo ) => isThisWeek( todo.dueDate ) )
     }
 
     return {
-        createTodos,
-        getTodo,
-        toggleStatus,
-        addToProject,
+
+        ...base,
+        changeDetails,
+        changeDueDate,
         changeTag,
-        dueDate,
-        changeDuration,
         changePriority,
-        del,
+        changeProject,
+        delByProject,
+        getByProject,
+        thisWeek,
+        todays,
+        toggleStatus,
+
     }
 })();
 
-window.todosController = todosController;
 export default todosController;

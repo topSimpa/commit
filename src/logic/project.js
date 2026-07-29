@@ -9,6 +9,10 @@ export default class Project {
         this.description = description;
     }
 
+    static fromJSON(data) {
+        return Object.setPrototypeOf(data, Project.prototype);
+    }
+
     get id() {
         return this._id;
     }
