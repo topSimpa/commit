@@ -11,7 +11,7 @@ export default function createStorage(key) {
             persist(); 
         },
         get: (id) => storage[id],
-        getAll: () => storage,
+        getAll: () => Object.values(storage),
         del: (id) => { 
             delete storage[id]; 
             persist(); 

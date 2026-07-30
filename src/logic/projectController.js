@@ -12,18 +12,6 @@ const projectController =  (function () {
     const changeDescription = base.createFieldSetter("description");
     const changeTitle = base.createFieldSetter("title");
 
-    
-    //check if default project is there or 
-    //create
-    const currentProject = projectStorage.getAll()
-    const defaultProject = currentProject.filter(
-        ( project ) => project.title == "Inbox" 
-    );
-
-    if (!defaultProject) {
-        base.create("Inbox", "default project for all your todos")
-    }
-
     return {
       ...base,
       changeDescription,

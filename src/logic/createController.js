@@ -6,7 +6,7 @@ export default function createController(storage, ModelClass) {
           const obj = new ModelClass(dataObject)
           
           storage.store(obj);
-          console.log(`${ typeof(obj) } ${ obj.id } was created`)
+          console.log(`${ ModelClass.name } ${ obj.id } was created`)
           return obj;
     }
 
@@ -15,20 +15,17 @@ export default function createController(storage, ModelClass) {
 
         if(!rawObj) return null;
 
-        const obj = ModelClass.fromJson(rawObj);
+        const obj = ModelClass.fromJSON(rawObj);
         return obj;
     }
 
     const getAll = () => {
         const rawCollection = storage.getAll();
 
-        if (!rawCollection) return [];
-
+        if (rawCollection.length == 0) return [];
+        
         //should be returned as a list of object of modelPrototype
-        const collection = Object.values(rawCollection).map(
-            (rawObj) => ModelClass.fromJson(rawObj)
-        );
-
+        const collection = rawCollection.map( ( obj ) => ModelClass.fromJSON(obj));
         return collection;
     }
 
