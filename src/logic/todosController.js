@@ -40,6 +40,8 @@ const todosController = (function () {
         return todos.filter( ( todo ) => todo.project == pid );
     } 
 
+    const getPriorityLevels = () => Todo.PRIORITY_LEVELS;
+
     const toggleStatus = (id) => {
         const todo = base.get(id);
         todo.toggleStatus();
@@ -75,6 +77,7 @@ const todosController = (function () {
         changeProject,
         delByProject,
         getByProject,
+        getPriorityLevels,
         thisWeek,
         todays,
         toggleStatus,

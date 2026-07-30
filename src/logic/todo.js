@@ -2,6 +2,13 @@
 
 export default class Todo {
 
+    //named constant priority
+    static PRIORITY_LEVELS = Object.freeze({
+        LOW : 1,
+        MID: 2,
+        HIGH: 3,
+    });
+
     constructor({
         title, 
         project = "",
@@ -9,7 +16,7 @@ export default class Todo {
         dueDate = new Date(),
         tag = "", 
         duration = "", 
-        priority = 1,
+        priority = Todo.PRIORITY_LEVELS.LOW,
 
     }) {
         if (!title) {
@@ -29,11 +36,6 @@ export default class Todo {
         
     }
 
-    static fromJSON(data) {
-        data.dueDate = new Date(data.dueDate);
-        return Object.setPrototypeOf({ ...data }, Todo.prototype)
-    }
-
     get id() {
         return this._id;
     }
@@ -45,4 +47,22 @@ export default class Todo {
     toggleStatus() {
         this._completed = !(this._completed);
     }
+
+    get priority () {
+        return this._priority;
+    }
+
+    set priority (value) {
+        if ( !( value in Object.values( Todo.PRIORITY_LEVELS ) ) ) {
+            throw new Error("Invalid priority value");
+        }
+
+        this._priority = value;
+    }
+
+    static fromJSON(data) {
+        data.dueDate = new Date(data.dueDate);
+        return Object.setPrototypeOf({ ...data }, Todo.prototype)
+    }
+
 }
