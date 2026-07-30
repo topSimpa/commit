@@ -1,19 +1,28 @@
 # Project Commit
 Commit is a todo list application, build to help manage and group task.
-it mimics traditional todolist. this was build as part of requirement of the odin project, to help practice OOP and modular design in JS and web application.
+it mimics traditional todolist. 
+this was build as part of requirement of the odin project, 
+to help practice OOP and modular design in JS and web application.
 
 ## Features
 
 
 
 
-## Objectives(optional)
+## Objectives
 - practice modularity design in web development
 - practice Object Oriented Programming in js
 - practice SOLID Design Principles.
+- practice writing clean JS codes
 
 
-### Technology Used
+## Technology Used
+- Vanilla JS
+- HTML5
+- CSS
+- Webpack, its plugins and loaders
 
+## Getting Started
 
 ### Credits & Contributions
+- Myself offcourse
