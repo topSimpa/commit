@@ -1,0 +1,18 @@
+:root {
+    --main-color: #DCF0D3;
+    --secondary-color: #185E4A;
+    --high-color: #D42020;
+    --mid-color: #6B6B1A;
+    --low-color: #0F5C57;
+    --todo-color: #F9F7F6;
+}
+
+:root.light {
+    --background-color: #FFFFFF;
+    --main-font-color: #000000;
+}
+
+:root.dark {
+    --background-color: #3b3939;
+    --main-font-color: #FFFFFF;
+}
