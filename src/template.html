@@ -3,9 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="./ui/images/favicon.svg">
+    <title>commit</title>
 </head>
 <body>
-    
+     <header>
+        <img src="./ui/images/commit-mark.svg" class="logo"/>
+        <div>
+            <p class="title-box"> <span class="name">Commit</span> <br>
+                stay committed
+            </p>
+        </div>
+        <div class="switch">
+            <button id="theme-button"></button>
+        </div>
+     </header>
+     <nav>
+        <ul id="home">
+            <div class="section-header">Home</div>
+            <!-- todo: Don't forget to add their icons -->
+            <li>
+                <img src="./ui/images/inbox.svg" class="home-icons">
+                Inbox
+            </li>
+            <li>
+                <img src="./ui/images/calendar-today.svg" class="home-icons">
+                Today
+            </li>
+            <li>
+                <img src="./ui/images/calendar-week.svg" class="home-icons">
+                Week
+            </li>
+            <li>
+                <img src="./ui/images/checkbox-marked-circle-outline.svg" class="home-icons">
+                Completed
+            </li>
+        </ul>
+        <ul id="projects">
+            <span class="section-header">Projects</span>
+        </ul>
+        <button id="add-button">+</button>
+    </nav>
+     <main>
+        <div></div>
+        <div class="priority-key">
+            <div class="key">
+                <div class="circle-box high"></div>
+                <div class="key-label high">high</div>
+            </div>
+            <div class="key">
+                <div class="circle-box mid"></div>
+                <div class="key-label mid">mid</div>
+            </div>
+            <div class="key">
+                <div class="circle-box low"></div>
+                <div class="key-label low">low</div>
+            </div>
+        </div>
+     </main>
 </body>
 </html>

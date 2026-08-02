@@ -16,3 +16,162 @@
     --background-color: #3b3939;
     --main-font-color: #FFFFFF;
 }
+
+body {
+    display: grid;
+    grid-template-columns: 270px 1fr;
+    grid-template-rows: 120px 1fr;
+    min-height: 100vh;
+    background-color: var(--background-color);
+}
+
+header {
+    padding: 24px;
+    background-color: var(--main-color); 
+    grid-column-start: span 2;
+    border-bottom: 4px solid var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    vertical-align: text-top;
+    position: relative;
+}
+
+.logo {
+    width: 3rem;
+}
+
+.title-box {
+    text-align: center;
+    line-height: normal;
+}
+
+.name {
+    color: var(--secondary-color);
+    font-size: 3rem;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+h1 {
+    color: var(--secondary-color);
+}
+
+.switch {
+    padding: 4px;
+    width: 80px;
+    border-radius: 16px;
+    border: 1px solid var(--secondary-color);
+    background-color: var(--background-color);
+    position: absolute;
+    bottom: 16px;
+    right: 32px;
+    display: flex;
+}
+
+#theme-button {
+    padding: 12px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+}
+
+nav {
+    padding: 24px 24px 148px 24px;
+    background-color: var(--main-color);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    position: relative;
+}
+
+nav > ul {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    gap: 16px;
+}
+
+nav > ul > li {
+    padding: 8px;
+    font-size: 1.2rem;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.home-icons {
+    width: 24px;
+}
+
+.section-header {
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+#add-button {
+    background-color: var(--background-color);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 48px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    font-size: 48px;
+    box-shadow: inset 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    padding: 50px;
+}
+
+.priority-key {
+    justify-self: flex-end;
+    height: 120px;
+    border: 2px solid var(--main-color);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.key {
+    display: flex;
+    align-items: center;
+}
+
+.circle-box {
+    padding: 16px;
+    border-radius: 50%;
+    border-right-width: 4px;
+    border-right-style: solid;
+}
+
+
+/* ? this below might change  */
+
+.high {
+    border-color: var(--high-color);
+    background-color: var(--high-color);
+}
+
+.low {
+    border-color: var(--low-color);
+    background-color: var(--low-color);
+}
+
+.mid {
+    border-color: var(--mid-color);
+    background-color: var(--mid-color);
+}
+
+.key-label {
+    padding: 0 16px;
+    background-color: inherit;
+    border-width: 2px;
+    border-style: solid;
+}
