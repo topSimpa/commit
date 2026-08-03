@@ -1,20 +1,25 @@
 :root {
-    --main-color: #DCF0D3;
     --secondary-color: #185E4A;
-    --high-color: #D42020;
-    --mid-color: #6B6B1A;
-    --low-color: #0F5C57;
-    --todo-color: #F9F7F6;
 }
 
 :root.light {
     --background-color: #FFFFFF;
     --main-font-color: #000000;
+    --main-color: #DCF0D3;
+    --todo-color: #F9F7F6;
+    --high-color: #D42020;
+    --mid-color: #6B6B1A;
+    --low-color: #0F5C57;
 }
 
 :root.dark {
-    --background-color: #3b3939;
-    --main-font-color: #FFFFFF;
+    --main-color: #1A2119;
+    --background-color: #121714;
+    --main-font-color: #F2FFFF;
+    --todo-color: #1E2620;
+    --high-color: #F16565;
+    --mid-color: #D4C24A;
+    --low-color: #4FBFB5;
 }
 
 body {
@@ -23,6 +28,7 @@ body {
     grid-template-rows: 120px 1fr;
     min-height: 100vh;
     background-color: var(--background-color);
+    color: var(--main-font-color)
 }
 
 header {
@@ -89,7 +95,7 @@ nav > ul {
     gap: 16px;
 }
 
-nav > ul > li {
+.pages {
     padding: 8px;
     font-size: 1.2rem;
     display: flex;
@@ -99,6 +105,7 @@ nav > ul > li {
 
 .home-icons {
     width: 24px;
+    fill: var(--main-font-color);
 }
 
 .section-header {
@@ -110,6 +117,7 @@ nav > ul > li {
 
 #add-button {
     background-color: var(--background-color);
+    color: var(--main-font-color);
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -126,11 +134,21 @@ main {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 24px;
-    padding: 50px;
+    padding:  50px 24px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    /*! I would remove this later below */
+    /* border: 1px solid var(--secondary-color); */
+}
+
+.home {
+    grid-column: 2 / 3;
 }
 
 .priority-key {
-    justify-self: flex-end;
     height: 120px;
     border: 2px solid var(--main-color);
     padding: 8px;

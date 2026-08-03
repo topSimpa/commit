@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./ui/images/favicon.svg">
+    <link rel="icon" href="./ui/images/favicon.svg" sizes="48x48">
     <title>commit</title>
 </head>
 <body>
@@ -23,20 +23,38 @@
             <div class="section-header">Home</div>
             <!-- todo: Don't forget to add their icons -->
             <li>
-                <img src="./ui/images/inbox.svg" class="home-icons">
-                Inbox
+                <a class="pages" id="1">
+                    <svg width="24px" height="24px" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" class="home-icons">
+                        <path d="M0 1.5C0 0.671573 0.671573 0 1.5 0H13.5C14.3284 0 15 0.671573 15 1.5V8H10.5C10.2239 8 10 8.22386 10 8.5C10 9.88071 8.88071 11 7.5 11C6.11929 11 5 9.88071 5 8.5C5 8.22386 4.77614 8 4.5 8H0V1.5Z"/>
+                        <path d="M0 9V13.5C0 14.3284 0.671573 15 1.5 15H13.5C14.3284 15 15 14.3284 15 13.5V9H10.9646C10.7219 10.6961 9.26324 12 7.5 12C5.73676 12 4.27806 10.6961 4.03544 9H0Z"/>
+                    </svg>
+                    Inbox
+                </a>
             </li>
             <li>
-                <img src="./ui/images/calendar-today.svg" class="home-icons">
-                Today
+                <a class="pages" id="2">
+                    <svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="home-icons">
+                        <path d="M7,10H12V15H7M19,19H5V8H19M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" />
+                    </svg>
+                    Today
+                </a>
             </li>
             <li>
-                <img src="./ui/images/calendar-week.svg" class="home-icons">
-                Week
+                <a class="pages" id="3">
+                    <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="home-icons">
+                        <path d="M17 2h-2v2H9V2H7v2H3v18h18V4h-4V2zM7 6h12v2H5V6h2zM5 20V10h14v10H5zm12-8H7v2h10v-2z"/>
+                    </svg>
+                    Week
+                </a>
             </li>
             <li>
-                <img src="./ui/images/checkbox-marked-circle-outline.svg" class="home-icons">
-                Completed
+                <a class="pages" id="4">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" viewBox="0 0 24 24" class="home-icons">
+                        <path d="M20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4C12.76,4 13.5,4.11 14.2,4.31L15.77,2.74C14.61,2.26 13.34,2 12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12M7.91,10.08L6.5,11.5L11,16L21,6L19.59,4.58L11,13.17L7.91,10.08Z" />
+                    </svg>
+                    Completed
+                </a>
+                
             </li>
         </ul>
         <ul id="projects">
@@ -45,7 +63,7 @@
         <button id="add-button">+</button>
     </nav>
      <main>
-        <div></div>
+        <div class="content"></div>
         <div class="priority-key">
             <div class="key">
                 <div class="circle-box high"></div>

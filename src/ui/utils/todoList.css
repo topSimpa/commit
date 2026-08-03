@@ -1,0 +1,38 @@
+/* todoList.css */
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.todo-display {
+    border: 1px solid;
+    border-radius: 8px;
+    background-color: var(--todo-color);
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 8px;
+    font-size: 1.2rem;
+}
+
+.todo-complete {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 2px solid;
+    cursor: pointer;
+}
+
+.todo-complete:checked:after {
+    content: url("../images/checkmark.svg");
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-icons {
+    fill: var(--main-font-color)
+}

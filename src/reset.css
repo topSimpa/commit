@@ -34,6 +34,12 @@ input, button, textarea, select {
   border:none;
 }
 
+/* 7.5 reseting checkboxes */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
 /* 8. Avoid text overflows */
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
@@ -55,6 +61,7 @@ li {
 /* remove the underline text */
 a {
    text-decoration: none;
+   cursor: pointer;
 }
 
 /* button should always change cursor to pointer */
