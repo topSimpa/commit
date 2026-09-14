@@ -1,0 +1,47 @@
+/* form.css */
+/*general styling guide for all app forms*/
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+label .asterisk {
+    color: var(--high-color);
+    margin-inline-start: 0.1rem;
+}
+
+input, textarea {
+    padding: 0.8rem;
+    border-radius: 0.4rem;
+    font-weight: 500;
+}
+
+input::placeholder, textarea::placeholder {
+    opacity: 0.5;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: 0.15rem solid var(--accent-main);
+    outline-offset: -0.3rem;
+}
+
+button.submit-button {
+    align-self: center;
+    background-color: var(--accent-secondary);
+    border-radius:  0.4rem;
+    padding: 0.8rem 1.5rem;
+    font-weight: bold;
+    color: var(--font-main)
+}

@@ -7,8 +7,10 @@ export default function createStorage(key) {
 
     return {
         store: (item) => { 
-            storage[item.id] = item; 
-            persist(); 
+            storage[item.id] = item;
+            persist();
+            return item;
+
         },
         get: (id) => storage[id],
         getAll: () => Object.values(storage),

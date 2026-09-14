@@ -1,0 +1,38 @@
+.task-forms select[name="workspace"], 
+.task-forms input[name="dueDate"] {
+    padding: 0.8rem;
+    border-radius: 0.4rem;
+}
+
+.task-forms .priority-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.task-forms .priority-options > label {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.task-forms input[type=radio] {
+    width: 24px;
+    height: 24px;
+    outline: none;
+}
+
+.LOW {
+    color: var(--low-color);
+}
+
+.HIGH {
+    color: var(--high-color);
+}
+
+.MID {
+    color: var(--mid-color);
+}

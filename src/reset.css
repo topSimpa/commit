@@ -34,10 +34,9 @@ input, button, textarea, select {
   border:none;
 }
 
-/* 7.5 reseting checkboxes */
-input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
+/*7.75 resizing texboxes (NO) */
+textarea {
+  resize: none;
 }
 
 /* 8. Avoid text overflows */
@@ -66,7 +65,7 @@ a {
 
 /* button should always change cursor to pointer */
 button {
-    cursor: pointer
+    cursor: pointer;
 }
 
 /*

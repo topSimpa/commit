@@ -4,19 +4,19 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 
 
 export default {
-    entry: "./src/index.js",
+    entry: "./src/commit.js",
     output: {
-        filename: "main.js",
+        filename: "commit.js",
         path: path.resolve(import.meta.dirname, "dist"),
         clean: true,
     },
     devtool: "eval-source-map",
     devServer: {
-        watchFiles: ["./src/template.html"],
+        watchFiles: ["./src/commit.html"],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./src/template.html",
+            template: "./src/commit.html",
         })
     ],
     module: {

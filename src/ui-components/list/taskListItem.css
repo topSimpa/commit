@@ -1,0 +1,118 @@
+.task-item {
+    height: 95px;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    justify-content: space-between;
+    border-radius: 1rem;
+    background-color: var(--font-main);
+    color: var(--font-secondary);
+    border-left-width: 2px;
+    border-left-style: solid;
+    box-shadow: 0 -2px 2px 2px;
+}
+
+.task-item.high {
+    border-left-color: var(--high-color);
+}
+
+.task-item.mid {
+    border-left-color: var(--mid-color);
+}
+
+.task-item.low {
+    border-left-color: var(--low-color);
+}
+
+.task-item .left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.task-item .right {
+    display: flex;
+    gap: 1rem;
+}
+
+.task-item .right button {
+    padding: 0;
+}
+
+.task-item .task-delete {
+    color: var(--high-color)
+}
+
+.task-item .text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.text-box .left-bottom {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    text-transform: capitalize;
+    font-size: 0.7rem;
+}
+
+.task-item .task-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.task-item .task-title.completed {
+    text-decoration: line-through;
+}
+
+.left-bottom .task-dueDate, 
+.left-bottom .priority-box {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.priority-box {
+    padding: 0.4rem 0.8rem;
+    border: 0.1rem solid;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 1px 1px;
+}
+
+.priority-box.high {
+    color: var(--high-color);
+    border-color: var(--high-color);
+}
+
+.priority-box.mid {
+    color: var(--mid-color);
+    border-color: var(--mid-color);
+}
+
+.priority-box.low {
+    color: var(--low-color);
+    border-color: var(--low-color);
+}
+
+
+.task-item .task-completed {
+    width: 32px;
+    height: 32px;
+    background-color: inherit;
+    border: 0.1rem solid var(--font-secondary);
+    border-radius: 50%;
+    align-self: flex-start;
+}
+
+.task-item .task-completed.checked {
+    background-color: var(--bg-main);
+}
+
+.task-completed .material-symbols-outlined {
+    color: var(--accent-main);
+}
+
+.left-bottom .material-symbols-outlined {
+    font-size: inherit;
+}

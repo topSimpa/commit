@@ -1,0 +1,454 @@
+:root {
+    --bg-main: #17261E;
+    --font-main: #F8FFF8;
+    --font-primary: #263d2c;
+    --font-secondary: #110B08;
+    --accent-main: #A3E635;
+    --accent-secondary: #152218;
+    --accent-primary: #B4BFA1;
+    --accent-delete: #BFA1A1;
+    --high-color: #A30000;
+    --mid-color: #A39200;
+    --low-color: #00A300;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+    background: var(--bg-main);
+    background: linear-gradient(
+        160deg, 
+        rgba(23, 38, 30, 1) 35%,
+        rgba(10, 12, 13, 1) 73%,
+        rgba(8, 127, 91, 1) 87%);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr auto;
+    height: 100vh;
+    color: #F8FFF8;
+    font-family: "IBM Plex Mono";
+}
+
+.sidebar {
+    display: flex;
+    grid-row: 1 / 3;
+    flex-direction: column;
+    width: 300px;
+    background-color: var(--bg-main);
+    border-right: 0.1rem solid var(--font-primary);
+    transition: 0.4s ease;
+}
+
+.sidebar.collapse {
+    width: 6.1rem;
+    transition: 0.4s ease;
+}
+
+.sidebar .sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    border-bottom: 0.1rem solid var(--font-primary);
+    padding: 1.5rem;
+}
+
+.sidebar.collapse .sidebar-text {
+    opacity: 0;
+    text-wrap: nowrap;
+    transition: 0.4s ease;
+}
+
+.sidebar .sidebar-header .logo {
+    width: 2.5rem;
+    flex-shrink: 0;
+}
+
+.sidebar .sidebar-contents {
+    flex: 1;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-contents .sidebar-section {
+    padding: 1.5rem;
+    border-bottom: 0.1rem solid var(--font-primary);
+    flex-direction: column;
+    display: flex;
+    gap: 1rem;
+}
+
+.sidebar-contents .sidebar-section.workspace {
+    flex: 1;
+}
+
+.sidebar-section .sidebar-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar-section-header .header-text {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 0.8rem;
+    opacity: 0.5rem;
+}
+
+.workspace .sidebar-section-header {
+    position: relative;
+}
+
+.workspace button#add-workspace {
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    background-color: inherit;
+    border: 0.1rem solid  var(--font-primary);
+    color: var(--accent-main);
+    right: 0;
+    top: -1rem;
+    transition: 0.4s ease;
+}
+
+.workspace button#add-workspace:hover {
+    border: 0.1rem solid  var(--accent-main);
+}
+
+.workspace .sidebar-list {
+    overflow: auto, hidden;
+    flex: 1;
+}
+
+p.storage-type {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    padding: 0 1.5rem;
+}
+
+p.storage-type .storage-icon {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 0.1rem solid var(--font-primary);
+    background-color: var(--accent-main);
+    flex-shrink: 0;
+}
+
+.sidebar .sidebar-footer {
+    padding: 1.5rem;
+    position: relative;
+    font-size:  0.9rem;
+    opacity: 0.7;
+}
+
+.sidebar-footer .sidebar-toggle-button {
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+    background-color: var(--accent-main);
+    border-radius: 0.5rem;
+    transition: 0.4s ease;
+}
+
+.sidebar-footer .sidebar-toggle-button:hover {
+    opacity: 0.4;
+}
+
+.sidebar.collapse .sidebar-footer .sidebar-toggle-button {
+    transform: scaleX(-1);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    font-size: 0.9rem;
+    overflow: hidden auto;
+    scrollbar-width: none;
+}
+
+main .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 4.5rem 0;
+    flex-basis: 1100px;
+    margin: 50px;
+}
+
+.container .content-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.container button {
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 0.4rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.container button:hover {
+    position: relative;
+    top: 0.1rem;
+}
+
+.content-header .header-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-top .header-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.header-desc p.view-name {
+    font-size: 3rem;
+    text-transform: capitalize;
+}
+
+p#tagline, p#today-date {
+    color: var(--accent-main);
+    font-size: 0.8rem;
+}
+
+.content-header .workspace-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.workspace-buttons button#delete-workspace {
+    background-color: rgba(163, 0, 0, 0.3);
+    color: var(--font-main);
+    border: 0.1rem solid var(--high-color)
+}
+
+button.add-task {
+    background-color: var(--accent-main);
+    color: var(--font-secondary);
+    font-weight: 600;
+    min-width: 140px;
+}
+
+.main-contents {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 1;
+    font-size: 0.8rem;
+    scrollbar-width: none;
+}
+
+.main-contents .progress-box {
+    padding: 1.5rem;
+    border: 0.1rem solid var(--font-primary);
+    background-color: var(--bg-main);
+    border-radius: 0.4rem;
+    
+}
+
+.progress-box span#complete-count {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.task-container .tasklist-header {
+    display: flex;
+    justify-content: space-between; 
+}
+
+ul#task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.main-contents .task-prompts {
+    background-color: rgba(23, 38, 30, 0.3);
+    flex: 1;
+    border: 0.1rem dashed var(--font-primary);
+    border-radius: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.task-prompts .prompt {
+    color: var(--accent-main);
+}
+
+.task-prompts .view-caption {
+    font-size: 2rem;
+}
+
+dialog {
+    padding: 0;
+    background-color: var(--accent-primary);
+    border: none;
+
+}
+
+dialog > * {
+    padding: 2rem;
+}
+
+dialog[open]::backdrop {
+    background-color: hsl(0 0% 0% / 0.5);
+    backdrop-filter: blur(2px);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.1rem solid var(--font-primary);
+}
+
+.modal-header .close-modal {
+    width: 2.5rem;
+    height: 2.5rem;
+    /* min-width: none; */
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--font-primary);
+    color: var(--font-main);
+    opacity: 0.5;
+}
+
+.headings .modal-title {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--accent-secondary);
+    text-transform: uppercase;
+}
+
+.headings .modal-action {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.page-footer {
+    background-color: var(--bg-main);
+    height: 4.5rem;
+    border-top: 0.1rem solid var(--font-primary);
+    box-sizing: border-box;
+    padding: 1.5rem 6rem;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0.7;
+} 
+
+.page-footer .contact-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-links li {
+    background-color: var(--accent-main);
+    width: 32px;
+    height: 32px;
+    padding: 0.4rem;
+    border-radius: 50%;
+}
+
+dialog#task-modal[open] {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: 600px;
+  max-height: none;
+  height: 100vh;
+  color: var(--font-secondary);
+}
+
+dialog#workspace-modal, dialog#delete-modal {
+    width: 500px;
+    min-height: 500px;
+    border-radius: 1.5rem;
+}
+
+dialog#delete-modal {
+    background-color: var(--accent-delete);
+}
+
+dialog#delete-modal .action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+dialog#delete-modal p#delete-content {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.action-buttons  button{
+    font-weight: 600;
+}
+
+.action-buttons button#confirm-delete {
+    color: var(--font-main);
+    background-color: #A30000;
+}
+
+@font-face {
+    font-family: 'IBM Plex Mono';
+    src: url('./ui-components/fonts/IBMPlexMono-Regular.woff2') format('woff2'),
+         url('./ui-components/fonts/IBMPlexMono-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 100 700;
+  src: url("./ui-components/fonts/MaterialSymbolsOutlined.woff2") format("woff2");
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}

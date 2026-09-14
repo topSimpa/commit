@@ -1,8 +1,11 @@
-//project.js
+//Workspace.js
 
-export default class Project {
+export default class Workspace {
 
-    constructor(title, description="") {
+    constructor({
+        title, 
+        description=""
+    }) {
         this._id = crypto.randomUUID();
 
         this.title = title;
@@ -10,7 +13,7 @@ export default class Project {
     }
 
     static fromJSON(data) {
-        return Object.setPrototypeOf(data, Project.prototype);
+        return Object.setPrototypeOf(data, Workspace.prototype);
     }
 
     get id() {
