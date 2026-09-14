@@ -51,7 +51,7 @@ export default function taskListItem({
     titleBox.className = "task-title";
 
     calendarIcon.className = "material-symbols-outlined";
-    calendarIcon.textContent = "\uefe8";
+    calendarIcon.textContent = "\ue8df";
     dueDateBox.className = "task-dueDate";
     dueDateBox.append(calendarIcon, dueDate);
 
