@@ -21,28 +21,28 @@ const smartViews = [
     { 
         _id: defaultViewsFilterKey.TODAY,
         title: "Today",
-        iconName: "today",
+        iconName: "\ue8df",
         description: "You got to complete these task today",
         type: viewType.default,
     },
     {
         _id: defaultViewsFilterKey.WEEK,
         title: "Week",
-        iconName: "calendar_view_week",
+        iconName: "\uefe8",
         description: "See how you fare this week",
         type: viewType.default,
     },
     {
         _id: defaultViewsFilterKey.ALL,
         title: "All Task",
-        iconName: "all_inclusive",
+        iconName: "\ueb3d",
         description: "All task can be found here",
         type: viewType.default,
     },
     {
         _id: defaultViewsFilterKey.COMPLETED,
         title: "Completed",
-        iconName: "fire_check",
+        iconName: "\ue86c",
         description: "Good job you've completed these tasks",
         type: viewType.default,
     },
@@ -53,7 +53,7 @@ const activeView = smartViews[0];
 const defaultWorkspace = {
     _id: defaultViewsFilterKey.INBOX,
     title: "Inbox",
-    iconName: "inbox",
+    iconName: "\ue156",
     description: "a workspace for every task with no workspace",
     type: viewType.default,
 }

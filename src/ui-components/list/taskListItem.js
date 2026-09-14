@@ -59,7 +59,7 @@ export default function taskListItem({
     workspaceBox.textContent = workspace;
 
     checkIcon.className = "material-symbols-outlined";
-    checkIcon.textContent = "check_circle";
+    checkIcon.textContent = "\uf0be";
     checkIcon.hidden = !completed;
     checkButton.className = "task-completed";
 
@@ -85,7 +85,7 @@ export default function taskListItem({
     priorityBox.className = "priority-box";
     addPriorityClass(priorityBox, priority);
     priorityIcon.className = "material-symbols-outlined";
-    priorityIcon.textContent = "flag";
+    priorityIcon.textContent = "\uf0c6";
     priorityBox.append(priorityIcon, priority);
 
 
@@ -100,7 +100,7 @@ export default function taskListItem({
     viewButton.className = "task-view";
     viewButton.dataset.formMode = formMode.edit;
     viewIcon.className = "material-symbols-outlined";
-    viewIcon.textContent =  "visibility";
+    viewIcon.textContent =  "\ue8f4";
     viewButton.append(viewIcon);
     viewButton.addEventListener("click", () => {
         taskItem.dispatchEvent(ViewEvent);
@@ -108,7 +108,7 @@ export default function taskListItem({
  
     deleteButton.className = "task-delete";
     deleteIcon.className = "material-symbols-outlined";
-    deleteIcon.textContent = "delete";
+    deleteIcon.textContent = "\ue92e";
     deleteButton.append(deleteIcon);
     deleteButton.addEventListener("click", () => {
         taskItem.dispatchEvent(DeleteEvent)

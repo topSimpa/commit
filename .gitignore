@@ -1,2 +1,5 @@
 node_modules
 dist
+*MaterialSymbolsOutlined.woff2
+.vscode/
+package-lock.json
