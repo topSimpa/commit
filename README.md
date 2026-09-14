@@ -26,24 +26,26 @@ to help practice OOP and modular design in JS and web application.
 - practice using webpack
 
 ## Getting Started
-   ### prerequisites
-       1. git
-       2. Nodejs
 
-   ### Installation & Setup
-       1. Clone this repository:
+### Prerequisites
+1. git
+2. Node.js
 
-          ```sh
-              git clone https://github.com/topSimpa/commit 
-              cd  commit
-          ```
+### Installation & Setup
+1. Clone this repository:
 
-       2. Install the necessary dependencies
+   \`\`\`sh
+   git clone https://github.com/topSimpa/commit
+   cd commit
+   \`\`\`
 
-          ```sh
-              npm install
-          ```
-       3. Check the package.json for other commands to use
+2. Install the necessary dependencies:
+
+   \`\`\`sh
+   npm install
+   \`\`\`
+
+3. Check `package.json` for other available commands.
 
 
 ## Credits & Contributions
