@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="cGradient" x1="90" y1="420" x2="410" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A3E635"/>
+      <stop offset="0.28" stop-color="#22C55E"/>
+      <stop offset="0.68" stop-color="#16A34A"/>
+      <stop offset="1" stop-color="#14B8A6"/>
+    </linearGradient>
+    <linearGradient id="checkGradient" x1="150" y1="360" x2="390" y2="160" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#16A34A"/>
+      <stop offset="0.55" stop-color="#84CC16"/>
+      <stop offset="1" stop-color="#A3E635"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#062E26" flood-opacity="0.20"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded app tile -->
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="#062E26"/>
+
+  <!-- C mark -->
+  <path d="M392 151C347 105 280 82 215 98C132 118 76 193 82 279C88 366 159 431 245 432C303 433 356 404 390 359L331 312C309 339 278 354 245 353C198 352 160 318 156 272C152 225 184 184 230 177C267 171 302 186 326 213L392 151Z" fill="url(#cGradient)" filter="url(#shadow)"/>
+
+  <!-- Checkmark integrated into C -->
+  <path d="M166 274L220 327C231 338 249 338 260 327L390 197C402 185 402 166 390 154C378 142 359 142 347 154L239 262L209 232C197 220 178 220 166 232C154 244 154 262 166 274Z" fill="url(#checkGradient)"/>
+</svg>
