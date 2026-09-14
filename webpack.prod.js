@@ -3,5 +3,5 @@
 
  export default merge(common, {
    mode: 'production',
-   devtool: "inline-source",
+   devtool: "inline-source-map",
  });
