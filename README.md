@@ -34,16 +34,16 @@ to help practice OOP and modular design in JS and web application.
 ### Installation & Setup
 1. Clone this repository:
 
-   \`\`\`sh
+```sh
    git clone https://github.com/topSimpa/commit
    cd commit
-   \`\`\`
+```
 
 2. Install the necessary dependencies:
 
-   \`\`\`sh
+```sh
    npm install
-   \`\`\`
+```
 
 3. Check `package.json` for other available commands.
 
