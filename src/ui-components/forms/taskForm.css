@@ -23,6 +23,7 @@
     width: 24px;
     height: 24px;
     outline: none;
+    accent-color: var(--bg-main);
 }
 
 .LOW {
