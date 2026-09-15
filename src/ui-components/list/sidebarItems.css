@@ -38,6 +38,7 @@ button.sidebar-button {
     border-radius: 50%;
     border: 0.15rem solid var(--font-main);
     flex-shrink: 0;
+    text-transform: lowercase;
 }
 
 .sidebar-item:hover .circle-icon, 
